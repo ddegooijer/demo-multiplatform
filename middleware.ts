@@ -14,6 +14,7 @@ export default async function middleware(req: NextRequest) {
       ? hostname.replace(vercelDomain!, "")
       : hostname.replace(`.localhost`, "").split(":")[0];
 
+  console.log(hostname);
   return NextResponse.rewrite(
     new URL(`/_sites/${currentHost}${path}`, req.url)
   );
