@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/_sites/[slug]/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1677095234384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677095362350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const Slug = (slug: string) => {\n-  return <>{slug}</>;\n+const Slug = ({ params, searchParams }) => {\n+  return <>lol</>;\n };\n \n export default Slug;\n"
+                }
+            ],
+            "date": 1677095234384,
+            "name": "Commit-0",
+            "content": "const Slug = (slug: string) => {\n  return <>{slug}</>;\n};\n\nexport default Slug;\n"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "middleware.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1677076962168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677094486679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,26 @@\n-import { NextRequest, NextResponse } from 'next/server';\n+import { NextRequest, NextResponse } from \"next/server\";\n \n export const config = {\n-    matcher: ['/((?!api|_next|images|next/image|examples|[\\\\w-]+\\\\.\\\\w+).*)']\n+  matcher: [\"/((?!api|_next|images|next/image|examples|[\\\\w-]+\\\\.\\\\w+).*)\"],\n };\n \n export default async function middleware(req: NextRequest) {\n-    const vercelDomain = process.env.VERCEL_DOMAIN;\n-    const url = req.nextUrl;\n-    const hostname = req.headers.get('host')!;\n-    const path = url.pathname;\n-    const currentHost =\n-        process.env.NODE_ENV === 'production' ? hostname.replace(vercelDomain!, '') : hostname.replace(`.localhost`, '').split(':')[0];\n+  const vercelDomain = process.env.VERCEL_DOMAIN;\n+  const url = req.nextUrl;\n+  const hostname = req.headers.get(\"host\")!;\n+  const path = url.pathname;\n+  const currentHost =\n+    process.env.NODE_ENV === \"production\"\n+      ? hostname.replace(vercelDomain!, \"\")\n+      : hostname.replace(`.localhost`, \"\").split(\":\")[0];\n \n-    if (hostname === 'localhost:3000' || hostname === process.env.VERCEL_DOMAIN) {\n-        return NextResponse.rewrite(new URL(`/home/${path}`, req.url));\n-    }\n+  if (hostname === \"localhost:3000\" || hostname === process.env.VERCEL_DOMAIN) {\n+    return NextResponse.rewrite(new URL(`/home/${path}`, req.url));\n+  }\n \n-    return NextResponse.rewrite(new URL(`/_sites/${currentHost}${path}`, req.url));\n+  console.log($(currentHost));\n+\n+  return NextResponse.rewrite(\n+    new URL(`/_sites/${currentHost}${path}`, req.url)\n+  );\n }\n"
+                },
+                {
+                    "date": 1677094497494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     process.env.NODE_ENV === \"production\"\n       ? hostname.replace(vercelDomain!, \"\")\n       : hostname.replace(`.localhost`, \"\").split(\":\")[0];\n \n-  if (hostname === \"localhost:3000\" || hostname === process.env.VERCEL_DOMAIN) {\n+  if (hostname === \"localhost:3001\" || hostname === process.env.VERCEL_DOMAIN) {\n     return NextResponse.rewrite(new URL(`/home/${path}`, req.url));\n   }\n \n   console.log($(currentHost));\n"
+                },
+                {
+                    "date": 1677094611029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,14 @@\n     process.env.NODE_ENV === \"production\"\n       ? hostname.replace(vercelDomain!, \"\")\n       : hostname.replace(`.localhost`, \"\").split(\":\")[0];\n \n+\n+      console.log(currentHost)\n   if (hostname === \"localhost:3001\" || hostname === process.env.VERCEL_DOMAIN) {\n     return NextResponse.rewrite(new URL(`/home/${path}`, req.url));\n   }\n \n-  console.log($(currentHost));\n \n   return NextResponse.rewrite(\n     new URL(`/_sites/${currentHost}${path}`, req.url)\n   );\n"
+                },
+                {
+                    "date": 1677094625710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n   matcher: [\"/((?!api|_next|images|next/image|examples|[\\\\w-]+\\\\.\\\\w+).*)\"],\n };\n \n export default async function middleware(req: NextRequest) {\n+  console.log('lol')\n   const vercelDomain = process.env.VERCEL_DOMAIN;\n   const url = req.nextUrl;\n   const hostname = req.headers.get(\"host\")!;\n   const path = url.pathname;\n"
+                },
+                {
+                    "date": 1677094656902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n   matcher: [\"/((?!api|_next|images|next/image|examples|[\\\\w-]+\\\\.\\\\w+).*)\"],\n };\n \n export default async function middleware(req: NextRequest) {\n-  console.log(\"lol\");\n   const vercelDomain = process.env.VERCEL_DOMAIN;\n   const url = req.nextUrl;\n   const hostname = req.headers.get(\"host\")!;\n   const path = url.pathname;\n"
+                }
+            ],
+            "date": 1677076962168,
+            "name": "Commit-0",
+            "content": "import { NextRequest, NextResponse } from 'next/server';\n\nexport const config = {\n    matcher: ['/((?!api|_next|images|next/image|examples|[\\\\w-]+\\\\.\\\\w+).*)']\n};\n\nexport default async function middleware(req: NextRequest) {\n    const vercelDomain = process.env.VERCEL_DOMAIN;\n    const url = req.nextUrl;\n    const hostname = req.headers.get('host')!;\n    const path = url.pathname;\n    const currentHost =\n        process.env.NODE_ENV === 'production' ? hostname.replace(vercelDomain!, '') : hostname.replace(`.localhost`, '').split(':')[0];\n\n    if (hostname === 'localhost:3000' || hostname === process.env.VERCEL_DOMAIN) {\n        return NextResponse.rewrite(new URL(`/home/${path}`, req.url));\n    }\n\n    return NextResponse.rewrite(new URL(`/_sites/${currentHost}${path}`, req.url));\n}\n"
+        }
+    ]
+}

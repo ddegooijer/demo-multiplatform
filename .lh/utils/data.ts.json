@@ -1,0 +1,26 @@
+{
+    "sourceFile": "utils/data.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1677095800870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677095818355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     slug: \"contact\",\n   },\n   {\n     site: \"demo-1\",\n-    title: \"Content 1\"\n+    title: \"Content 1\",\n     slug: \"content-1\",\n   },\n   {\n     site: \"demo-1\",\n@@ -24,12 +24,8 @@\n     slug: \"content-2\",\n   },\n   {\n     site: \"demo-1\",\n-    slug: \"behandelingen\",\n-  },\n-  {\n-    site: \"demo-1\",\n     slug: \"veelgestelde-vragen\",\n   },\n \n   {\n"
+                },
+                {
+                    "date": 1677095855309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,35 +19,25 @@\n     slug: \"content-1\",\n   },\n   {\n     site: \"demo-1\",\n-    title: \"Content 2\"\n+    title: \"Content 2\",\n     slug: \"content-2\",\n   },\n   {\n-    site: \"demo-1\",\n-    slug: \"veelgestelde-vragen\",\n-  },\n-\n-  {\n     site: \"demo-2\",\n     slug: \"contact\",\n+    title: \"Contact\",\n   },\n   {\n     site: \"demo-2\",\n     slug: \"content-1\",\n+    title: \"Content 1\",\n   },\n   {\n     site: \"demo-2\",\n     slug: \"content-2\",\n+    title: \"Content 2\",\n   },\n-  {\n-    site: \"demo-2\",\n-    slug: \"behandelingen\",\n-  },\n-  {\n-    site: \"demo-2\",\n-    slug: \"veelgestelde-vragen\",\n-  },\n ];\n \n export { domains, routes };\n"
+                }
+            ],
+            "date": 1677095800870,
+            "name": "Commit-0",
+            "content": "const domains = [\n  {\n    site: \"demo-1\",\n  },\n  {\n    site: \"demo-2\",\n  },\n];\n\nconst routes = [\n  {\n    site: \"demo-1\",\n    title: \"Contact\",\n    slug: \"contact\",\n  },\n  {\n    site: \"demo-1\",\n    title: \"Content 1\"\n    slug: \"content-1\",\n  },\n  {\n    site: \"demo-1\",\n    title: \"Content 2\"\n    slug: \"content-2\",\n  },\n  {\n    site: \"demo-1\",\n    slug: \"behandelingen\",\n  },\n  {\n    site: \"demo-1\",\n    slug: \"veelgestelde-vragen\",\n  },\n\n  {\n    site: \"demo-2\",\n    slug: \"contact\",\n  },\n  {\n    site: \"demo-2\",\n    slug: \"content-1\",\n  },\n  {\n    site: \"demo-2\",\n    slug: \"content-2\",\n  },\n  {\n    site: \"demo-2\",\n    slug: \"behandelingen\",\n  },\n  {\n    site: \"demo-2\",\n    slug: \"veelgestelde-vragen\",\n  },\n];\n\nexport { domains, routes };\n"
+        }
+    ]
+}

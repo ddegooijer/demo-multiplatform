@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/layout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1677078282286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1677078282286,
+            "name": "Commit-0",
+            "content": "import \"./globals.css\";\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <html lang=\"en\">\n      {/*\n        <head /> will contain the components returned by the nearest parent\n        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head\n      */}\n      <head />\n      <body>{children}</body>\n    </html>\n  );\n}\n"
+        }
+    ]
+}

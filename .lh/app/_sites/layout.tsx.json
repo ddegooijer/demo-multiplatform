@@ -1,0 +1,66 @@
+{
+    "sourceFile": "app/_sites/layout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1677095041781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677095317811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n   children: ReactNode;\n   params: { site: string };\n }) => {\n   return (\n-    <RootLayout>\n+    <html>\n       {Object.values(routes).map((route) => (\n         <Link href={route.slug} title={route.slug} />\n       ))}\n       {children}\n-    </RootLayout>\n+    </html>\n   );\n };\n \n export default Layout;\n"
+                },
+                {
+                    "date": 1677095323988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n   children: ReactNode;\n   params: { site: string };\n }) => {\n   return (\n-    <html>\n+    <RootLayout>\n       {Object.values(routes).map((route) => (\n         <Link href={route.slug} title={route.slug} />\n       ))}\n       {children}\n-    </html>\n+    </RootLayout>\n   );\n };\n \n export default Layout;\n"
+                },
+                {
+                    "date": 1677095384846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n   params: { site: string };\n }) => {\n   return (\n     <RootLayout>\n-      {Object.values(routes).map((route) => (\n-        <Link href={route.slug} title={route.slug} />\n+      {Object.values(routes).map((route, index) => (\n+        <Link key={index} href={route.slug} title={route.slug} />\n       ))}\n       {children}\n     </RootLayout>\n   );\n"
+                },
+                {
+                    "date": 1677095398978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n     <RootLayout>\n       {Object.values(routes).map((route, index) => (\n         <Link key={index} href={route.slug} title={route.slug} />\n       ))}\n+      lol\n       {children}\n     </RootLayout>\n   );\n };\n"
+                },
+                {
+                    "date": 1677095424163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,12 @@\n }) => {\n   return (\n     <RootLayout>\n       {Object.values(routes).map((route, index) => (\n-        <Link key={index} href={route.slug} title={route.slug} />\n+        <Link key={index} href={route.slug}>\n+          lol\n+        </Link>\n       ))}\n-      lol\n       {children}\n     </RootLayout>\n   );\n };\n"
+                },
+                {
+                    "date": 1677095429956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   return (\n     <RootLayout>\n       {Object.values(routes).map((route, index) => (\n         <Link key={index} href={route.slug}>\n-          lol\n+          {route.slug}\n         </Link>\n       ))}\n       {children}\n     </RootLayout>\n"
+                },
+                {
+                    "date": 1677095466927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n }: {\n   children: ReactNode;\n   params: { site: string };\n }) => {\n+  console.log(routes);\n   return (\n     <RootLayout>\n       {Object.values(routes).map((route, index) => (\n         <Link key={index} href={route.slug}>\n"
+                },
+                {
+                    "date": 1677095514007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,20 @@\n import RootLayout from \"../layout\";\n import { routes } from \"../../utils/data\";\n import Link from \"next/link\";\n \n+const getRoutes(params) {\n+  console.log(params);\n+}\n const Layout = async ({\n   children,\n   params,\n }: {\n   children: ReactNode;\n   params: { site: string };\n }) => {\n-  console.log(routes);\n+  const routes = getRoutes(params);\n+\n   return (\n     <RootLayout>\n       {Object.values(routes).map((route, index) => (\n         <Link key={index} href={route.slug}>\n"
+                },
+                {
+                    "date": 1677095523026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import RootLayout from \"../layout\";\n import { routes } from \"../../utils/data\";\n import Link from \"next/link\";\n \n-const getRoutes(params) {\n+const getRoutes = (params) => {\n   console.log(params);\n-}\n+};\n const Layout = async ({\n   children,\n   params,\n }: {\n"
+                },
+                {
+                    "date": 1677095588582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,20 @@\n import RootLayout from \"../layout\";\n import { routes } from \"../../utils/data\";\n import Link from \"next/link\";\n \n-const getRoutes = (params) => {\n-  console.log(params);\n+const getRoutes = (site: string) => {\n+  console.log(site);\n };\n+\n const Layout = async ({\n   children,\n   params,\n }: {\n   children: ReactNode;\n   params: { site: string };\n }) => {\n-  const routes = getRoutes(params);\n+  const routes = getRoutes(params.site);\n \n   return (\n     <RootLayout>\n       {Object.values(routes).map((route, index) => (\n"
+                },
+                {
+                    "date": 1677095599130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,17 +15,8 @@\n   params: { site: string };\n }) => {\n   const routes = getRoutes(params.site);\n \n-  return (\n-    <RootLayout>\n-      {Object.values(routes).map((route, index) => (\n-        <Link key={index} href={route.slug}>\n-          {route.slug}\n-        </Link>\n-      ))}\n-      {children}\n-    </RootLayout>\n-  );\n+  return <RootLayout>{children}</RootLayout>;\n };\n \n export default Layout;\n"
+                },
+                {
+                    "date": 1677095607989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n }: {\n   children: ReactNode;\n   params: { site: string };\n }) => {\n+  console.log(params);\n   const routes = getRoutes(params.site);\n \n   return <RootLayout>{children}</RootLayout>;\n };\n"
+                }
+            ],
+            "date": 1677095041781,
+            "name": "Commit-0",
+            "content": "import { ReactNode } from \"react\";\nimport RootLayout from \"../layout\";\nimport { routes } from \"../../utils/data\";\nimport Link from \"next/link\";\n\nconst Layout = async ({\n  children,\n  params,\n}: {\n  children: ReactNode;\n  params: { site: string };\n}) => {\n  return (\n    <RootLayout>\n      {Object.values(routes).map((route) => (\n        <Link href={route.slug} title={route.slug} />\n      ))}\n      {children}\n    </RootLayout>\n  );\n};\n\nexport default Layout;\n"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/_sites/layout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1677078243873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677094454562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n const Layout = async ({ children, params }: { children: ReactNode; params: { site: string } }) => {\n     return (\n         <RootLayout>\n-            {Object.values(routes.map((route) => <Link href={route.slug} title?={route.slug} />)}           \n+            {Object.values(routes.map((route) => <Link href={route.slug} title={route.slug} />)}           \n         </RootLayout>\n     );\n };\n \n"
+                },
+                {
+                    "date": 1677094474475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,22 @@\n-import { ReactNode } from 'react';\n-import RootLayout from '../layout';\n-import {domains, routes} from '../../utils/data';\n-import Link from 'next/link';\n+import { ReactNode } from \"react\";\n+import RootLayout from \"../layout\";\n+import { domains, routes } from \"../../utils/data\";\n+import Link from \"next/link\";\n \n-const Layout = async ({ children, params }: { children: ReactNode; params: { site: string } }) => {\n-    return (\n-        <RootLayout>\n-            {Object.values(routes.map((route) => <Link href={route.slug} title={route.slug} />)}           \n-        </RootLayout>\n-    );\n+const Layout = async ({\n+  children,\n+  params,\n+}: {\n+  children: ReactNode;\n+  params: { site: string };\n+}) => {\n+  return (\n+    <RootLayout>\n+      {Object.values(routes).map((route) => (\n+        <Link href={route.slug} title={route.slug} />\n+      ))}\n+    </RootLayout>\n+  );\n };\n \n export default Layout;\n"
+                },
+                {
+                    "date": 1677094808381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n     <RootLayout>\n       {Object.values(routes).map((route) => (\n         <Link href={route.slug} title={route.slug} />\n       ))}\n+      {children}\n     </RootLayout>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1677078243873,
+            "name": "Commit-0",
+            "content": "import { ReactNode } from 'react';\nimport RootLayout from '../layout';\nimport {domains, routes} from '../../utils/data';\nimport Link from 'next/link';\n\nconst Layout = async ({ children, params }: { children: ReactNode; params: { site: string } }) => {\n    return (\n        <RootLayout>\n            {Object.values(routes.map((route) => <Link href={route.slug} title?={route.slug} />)}           \n        </RootLayout>\n    );\n};\n\nexport default Layout;\n"
+        }
+    ]
+}

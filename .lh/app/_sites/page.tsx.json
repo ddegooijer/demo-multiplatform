@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/_sites/page.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1677095095495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677095124530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { domains } from \"@/utils/data\";\n+\n export function generateStaticParams() {\n   return Object.keys(domains).map((domain) => ({\n     site: domain,\n   }));\n"
+                },
+                {
+                    "date": 1677095157563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,12 @@\n import { domains } from \"@/utils/data\";\n \n export function generateStaticParams() {\n+  console.log(\n+    Object.keys(domains).map((domain) => ({\n+      site: domain,\n+    }))\n+  );\n   return Object.keys(domains).map((domain) => ({\n     site: domain,\n   }));\n }\n"
+                },
+                {
+                    "date": 1677095172254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,7 @@\n import { domains } from \"@/utils/data\";\n \n export function generateStaticParams() {\n-  console.log(\n-    Object.keys(domains).map((domain) => ({\n-      site: domain,\n-    }))\n-  );\n   return Object.keys(domains).map((domain) => ({\n     site: domain,\n   }));\n }\n"
+                }
+            ],
+            "date": 1677095095495,
+            "name": "Commit-0",
+            "content": "export function generateStaticParams() {\n  return Object.keys(domains).map((domain) => ({\n    site: domain,\n  }));\n}\nconst Page = () => {\n  return <></>;\n};\n\nexport default Page;\n"
+        }
+    ]
+}
